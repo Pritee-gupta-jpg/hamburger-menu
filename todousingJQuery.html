@@ -1,0 +1,84 @@
+
+<!DOCTYPE <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      />
+      <style>
+        body{
+            height:500px;
+            width: 100vw;
+            background-image: linear-gradient(50deg,#ff0 50%,#333 50%);
+        }
+        .container{
+            width:400px;
+            height: auto;
+            margin:30px 400px ;
+            background-color: rgb(36, 92, 92);
+            border-radius: 8px;
+        }
+        input{
+            height:50px;
+            width:350px;
+            margin:4px 35px;
+            font-size:20px;
+            border-radius: 8px;
+            background-color: black;
+            color: beige;
+        }
+        ul{
+            list-style: none;
+            padding: 5px;
+            font-size: 19px;
+        }
+        ul li{
+            height: 40px;
+            width: 350px;
+            background-color: rgb(233, 215, 21);
+            border-radius: 8px;
+            position: relative;
+            margin: 5px;
+            padding-left: 20px;
+            padding-top: 8px;
+        }
+        .fa-check{
+            position: absolute;
+            right: 40px;
+            color:rgb(255, 0, 51);
+        }
+        .fa-trash{
+            position: absolute;
+            right: 15px;
+            color: rgb(255, 0, 149);
+        }
+      </style>
+    </head>
+    <body>
+    <div class="container">
+        <input type="text" placeholder="Enter you task to add">
+        <ul></ul>
+    </div>
+    
+    <script>
+        $(document).ready(function(){
+         $("input").change(function(){
+            let x=$(this).val();
+            $("ul").append(`<li>  ${x}  <i class="fas fa-check"></i><i class="fas fa-trash del"></i></li>`);
+            $(this).val(' ');
+         });
+        $("ul").on("click",".fa-trash",function(){
+            $(this).parent("li").fadeOut(300);
+        });
+        $("ul").on("click",".fa-check",function(){
+            $(this).parent("li").css("background-color","green");
+        });
+       
+        });
+    </script>
+    </body>
+</html>
